@@ -80,14 +80,50 @@ class Apartment:
         return f"Apartment info: {self.rooms},{self.apart_number},{self.square},{self.floor},{self.entrance},{self.price}"
 
 
-house1 = House('Haeftenzeile 11', 'Illia', 100, 4, 2000, 'Illia Castle',
-               4, 2000, 600, 1, 4)
+class User:
+    def __init__(self, first_name: str, last_name: str, phone: str):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.phone = phone
+        self.queries = []
 
-house1.fill_apartments()
 
-print(house1.apartments)
+class UserQuery:
+    def __init__(self, min_cost: int, max_cost: int, min_sqr: int, max_sqr, is_first_floor: bool, is_last_floor: bool,
+                 stage: str):
+        self.min_cost = min_cost
+        self.max_cost = max_cost
+        self.min_sqr = min_sqr
+        self.max_sqr = max_sqr
+        self.is_first_floor = is_first_floor
+        self.is_last_floor = is_last_floor
+        self.stage = stage
 
-print(house1.total_square)
-print(house1.calculate_total_square())
-apartments_wiht_price = [apartment.get_apartment_price() for apartment in house1.apartments]
-print(house1.apartments)
+
+class Filter:
+    pass
+
+
+class Searcher:
+    def __init__(self):
+        self.filters = []
+
+    def add_filter(self, filter: Filter):
+        self.filters.append(filter)
+
+    def find_apartment(self):
+        pass
+
+
+if __name__ == "__main__":
+    house1 = House('Haeftenzeile 11', 'Illia', 100, 4, 2000, 'Illia Castle',
+                   4, 2000, 600, 1, 4)
+
+    house1.fill_apartments()
+
+    print(house1.apartments)
+
+    print(house1.total_square)
+    print(house1.calculate_total_square())
+    apartments_wiht_price = [apartment.get_apartment_price() for apartment in house1.apartments]
+    print(house1.apartments)
