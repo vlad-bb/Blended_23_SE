@@ -15,4 +15,3 @@ def send_order(order_id: int):
         send_order(order_id)
 
 
-   
